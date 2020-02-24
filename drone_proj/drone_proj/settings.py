@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # Third party appa
     'rest_framework',
+    'django_filters',
 
     # Own apps
     'drones',
@@ -79,7 +80,12 @@ WSGI_APPLICATION = 'drone_proj.wsgi.application'
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS':
     'drones.custompagination.LimitOffsetPaginationWithUpperBound',
-    'PAGE_SIZE': 6
+    'PAGE_SIZE': 6,
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.OrderingFilter',
+        'rest_framework.filters.SearchFilter',
+    )
 }
 
 # Database
