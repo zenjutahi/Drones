@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'drone_proj.wsgi.application'
 # Rest Framework settings
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS':
-    'rest_framework.pagination.LimitOffsetPagination',
+    'drones.custompagination.LimitOffsetPaginationWithUpperBound',
     'PAGE_SIZE': 6
 }
 
