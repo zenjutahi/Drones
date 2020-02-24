@@ -75,6 +75,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'drone_proj.wsgi.application'
 
+# Rest Framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS':
+    'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 6
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
