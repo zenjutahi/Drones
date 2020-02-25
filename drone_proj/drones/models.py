@@ -18,7 +18,11 @@ class Drone(models.Model):
     manufacturing_date = models.DateField()
     it_has_completed = models.BooleanField(default=False)
     inserted_timestamp = models.DateTimeField(auto_now_add=True)
-
+    owner = models.ForeignKey(
+        'auth.User',
+        related_name='drones',
+        on_delete=models.CASCADE)
+    
     class Meta:
         ordering = ('name',)
 

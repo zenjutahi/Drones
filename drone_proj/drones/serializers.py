@@ -4,7 +4,29 @@ from drones.models import Drone
 from drones.models import Pilot
 from drones.models import Competition
 import drones.views
+from django.contrib.auth.models import User
 
+
+class UserDroneSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Drone
+        fields = (
+            'url',
+            'name')
+
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    drones = UserDroneSerializer(
+        many=True,
+        read_only=True)
+
+    class Meta:
+        model = User
+        fields = (
+            'url',
+            'pk',
+            'username',
+            'drone')
 
 
 class DroneCategorySerializer(serializers.HyperlinkedModelSerializer):
