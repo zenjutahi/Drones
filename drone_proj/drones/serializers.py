@@ -48,7 +48,7 @@ class DroneSerializer(serializers.HyperlinkedModelSerializer):
     drone_category = serializers.SlugRelatedField(queryset=DroneCategory.objects.all(),
         slug_field='name')
     # Display the owner's username (read-only)
-    # owner = serializers.ReadOnlyField(source='owner.username')
+    owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
         model = Drone
@@ -56,6 +56,7 @@ class DroneSerializer(serializers.HyperlinkedModelSerializer):
             'url',
             'pk',
             'name',
+            'owner',
             'drone_category',
             'manufacturing_date',
             'it_has_completed',
