@@ -37,15 +37,15 @@ class DroneCategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = DroneCategory.objects.all()
     serializer_class = DroneCategorySerializer
     name = 'dronecategory-detail'
-    # filter_fields = (
-    #     'name',
-    #     )
-    # search_fields = (
-    #     '^name',
-    #     )
-    # ordering_fields = (
-    #     'name',
-    #     )
+    filter_fields = (
+        'name',
+        )
+    search_fields = (
+        '^name',
+        )
+    ordering_fields = (
+        'name',
+        )
 
 
 class DroneList(generics.ListCreateAPIView):
