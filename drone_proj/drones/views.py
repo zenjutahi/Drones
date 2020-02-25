@@ -78,10 +78,10 @@ class DroneDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Drone.objects.all()
     serializer_class = DroneSerializer
     name = 'drone-detail'
-    # permission_classes = (
-    #     permissions.IsAuthenticatedOrReadOnly,
-    #     custompermission.IsCurrentUserOwnerOrReadOnly,
-    #     )
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly,
+        custompermission.IsCurrentUserOwnerOrReadOnly,
+        )
 
 
 class PilotList(generics.ListCreateAPIView):
